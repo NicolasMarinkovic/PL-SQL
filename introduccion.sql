@@ -51,13 +51,35 @@ END;
   fecha date
  );
 
- create table empleados(
-  documento char(8),
-  apellido varchar2(20),
-  nombre varchar2(20),
-  seccion varchar2(30),
-  sueldo number(8,2)
- );
+create table log_actividades(
+    id_log int not null,
+    fecha date
+);
+
+drop table empleados;
+create table empleados (
+id_empleado int not null primary key,
+nombre varchar(20) not null,
+id_puesto char(20),
+id_supervisor int null
+);
+insert into empleados values(100,'Miguel Gonzales','PRESIDENTE',null);           
+insert into empleados values(101,'Federico Antillana','VICE_PRESIDENTE',100);
+insert into empleados values(102,'MIguel Montero','GERENTE_GRAL',100);
+insert into empleados values(103,'Manuel Saldaños','IT_GERENTE',102);
+insert into empleados values(104,'Ana Montesinos','SOPORTE_IT',103);
+insert into empleados values(105,'Manuel Figueroa','SOPORTE_IT',103);
+insert into empleados values(106,'Eliana Sandoval','SOPORTE_IT',103);
+insert into empleados values(107,'Iluminada Contreras','SOPORTE_IT',103);
+insert into empleados values(108,'Manuela Condado','SECRETARIA',101);
+insert into empleados values(109,'Emilia Cortinez','SECRETARIA',102);
+insert into empleados values(110,'Denia Soler','SECRETARIA',103);
+insert into empleados values(111,'Barbara Eleonor','SECRETARIA',101);
+insert into empleados values(112,'Fausto Melaneo','VENDEDOR',102);
+insert into empleados values(113,'Adalberto Mirabal','VENDEDOR',102);
+insert into empleados values(114,'Estelvina Zorrilla','VENDEDORA',102);
+insert into empleados values(115,'Mireya Matos','ASISTENTE_SECRETARIO',108);
+insert into empleados values(116,'Elena Martinez','ASISTENTE_SECRETARIO',109);
    
  create table control(
   usuario varchar2(30),
@@ -107,14 +129,6 @@ insert into alumnos values('A348','25555555','PEREZ PATRICIA',6,'LENGUA',7.85);
 insert into alumnos values('A123','22222222','PEREZ PATRICIA',5,'MATEMATICAS',9);
 insert into alumnos values('A124','32222222','GONZALES JOSE',5,'BIOLOGIA',9);
 insert into alumnos values('A124','32222222','GONZALES JOSE',5,'MATEMATICAS',8);
- 
- --INSERTS
-  insert into empleados values('22333444','ACOSTA','Ana','Secretaria',500);
- insert into empleados values('22555666','CASEROS','Carlos','Contaduria',900);
- insert into empleados values('22777888','DOMINGUEZ','Daniel','Secretaria',560);
- insert into empleados values('22999000','FUENTES','Federico','Sistemas',680);
- insert into empleados values('23444555','GOMEZ','Gabriela','Sistemas',1200);
- insert into empleados values('23666777','JUAREZ','Juan','Contaduria',1000);
 
  insert into libros values(100,'Uno','Richard Bach','Planeta',25);
  insert into libros values(103,'El aleph','Borges','Emece',28);
